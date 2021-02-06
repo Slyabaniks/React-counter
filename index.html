@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="css/index.css">
+         <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>COUNTER WITH REACT</title>
+     </head>
+     <body>
+         <div id="root"></div>
+         <script type="text/babel">
+        
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  this.increment = this.increment.bind(this);
+  this.decrement = this.decrement.bind(this);
+  this.reset = this.reset.bind(this);
+ }
+  reset() {
+    this.setState({
+      count: 0
+    });
+  }
+  increment() {
+    this.setState(state => ({
+      count: state.count + 1
+    }));
+  }
+  decrement() {
+    this.setState(state => ({
+      count: state.count - 1
+    }));
+  }
+  render() {
+    return (
+	<main>
+      <div className='container'>
+        <button className='inc btn' onClick={this.increment}>Increment!</button>
+        <button className='dec btn' onClick={this.decrement}>Decrement!</button>
+        <button className='reset btn' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+	  </main>
+    );
+  }
+};
+    ReactDOM.render(<Counter />, document.getElementById('root'));
+        
+        </script>
+
+     </body>
+     </html>
